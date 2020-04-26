@@ -6,6 +6,48 @@
     <title>Week 1</title>
 </head>
 <body>
+    <h2>Week 1</h2>
+    <br>
+    <h3>Local Storage Notes</h3>
+    <ul>
+        <li>Local Storage is a way to store values in the console that can be used</li>
+        <li>Code Example from Bro Thayne</li>
+        <br>
+        <code>
+            if (localStorage.clickcount) {
+                localStorage.clickcount = Number(localStorage.clickcount) + 1;
+            } else {
+                localStorage.clickcount = 1;
+            }
+            document.getElementById("result").innerHTML = "You have clicked the button "
++ localstorage.clickcount + " time(s).";        
+        </code>
+        <br><br>
+        <li>Two ways to SET local storage in JavaScript:</li>
+        <br>
+        <code>
+            localStorage.setItem("firstName", "Tyson");<br>
+            OR <br>
+            localStorage.lastName = 'Thornton';
+        </code>
+        <br><br>
+        <li>Two ways to GET local storage in JavaScript:</li>
+        <br>
+        <code>
+            let firstName = localStorage.getItem('firstName');<br>
+            OR <br>
+            let lastName = localStorage.lastName;
+        </code>
+        <br><br>
+        <li><a href="storyeditor.html">Link to Local Storage activity</a></li>
+    </ul>
+    
+    <br><br>
+
+    <section id="questions">
+        <h3>Questions</h3>
+        In the code example from Bro Thayne, I think that is keeping track of how many times a button is clicked.
+    </section>
     
 </body>
 </html>
