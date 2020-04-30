@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Team Activity Week 2</title>
+
+
+    <style>
+        textarea {
+            width: 400px;
+            height: 150px;
+           
+        }
+
+        input {
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header></header>
+    <p><strong>Core Requirements</strong></p>
+    <ol>
+        <li>Create a new html file. Add the code necessary to make it a valid document</li>
+        <ol>
+            <li>Add a text input and a button. Put an empty div with an ID below those.</li>
+            <li>Add a script tag, write a function that will read the contents of the input, and write them to the div.
+            </li>
+            <li>Call the function when the button is pressed.</li>
+        </ol>
+        <li>Modify your HTML file:</li>
+        <ol>
+            <li>Write a new function that expects a number as an argument. It should take that number and sum all the
+                numbers up to the number provided. (ie n=5&hellip;so it would do 1+2+3+4+5 = 15) It should return that
+                value.</li>
+            <li>When the button is pressed it should read the number from the input. Make sure it is a valid number,
+                call the summing function you just wrote, and output the result to the div.</li>
+        </ol>
+        <li>Create an adding machine</li>
+        <ol>
+            <li>Add an additional input to your HTML file.</li>
+            <li>Add a + button.</li>
+            <li>Write a function that will take the numbers from each input, add them together, and output the result to
+                a div</li>
+        </ol>
+    </ol>
+    <p><strong>Stretch Goals</strong></p>
+    <p>It will be very helpful if you have completed the reading on <a
+            href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read">Ch4:
+            Functions</a> before you do this.</p>
+    <ol>
+        <li>Function declaration</li>
+
+        <p>Part of your reading this week is about Javascript Functions. In Javascript there are several ways to define
+            a
+            function: with a function declaration, a function expression, or an arrow function.
+            Add some more features (subtract, multiply, etc) to your calculator. Make sure to use each of the three
+            methods
+            at least once in your function definitions. Discuss with your team the differences and if there is one you
+            prefer.</p>
+        <li>
+            <p>Writing 'good' functions</p>
+            <p>In good program design functions should do one thing and do it well. They should be kept simple. Another
+                good programming practice is to keep your code <strong>DRY</strong> (Don't Repeat Yourself). How did you
+                do with your functions? Does each do one thing only? Is there any repeated code? How could you fix this?
+                If you have repeated lines of code in your functions the most common solution is to pull those repeated
+                lines out and create a new function with them. Do this with your code.</p>
+        </li>
+        <li>
+            <p>Callbacks</p>
+            <p>In Javascript functions can be passed as the argument into another function. When this is done the
+                function being passed in is called a <strong>callback</strong>.</p>
+            <p>Discuss with your team how callbacks might be used in programming a calculator to help keep your
+                functions simple and your code <strong>DRY</strong>. If you have time try to implement one of your
+                ideas.</p>
+        </li>
+    </ol>
+
+
+
+    <main>
+        <h1 class="teamheader">Problem #1</h1>
+
+        <textarea id="user_input" placeholder="Input text here."></textarea><br><br>
+        <button onclick="loadProgram()">Show the input!</button><br><br>
+        <div id="user_notes"></div>
+
+
+        <h1 class="teamheader">Problem #2</h1>
+
+        <input type="text" id="user_input2" placeholder="Please enter a number."></input><br><br>
+        <button onclick="sumItUp()">Press for the sum</button><br><br>
+        <div id="output2"></div>
+
+        <h1 class="teamheader">Problem 3</h1>
+
+        <input type="text" id="number1" placeholder="Enter a number"></input>
+        +
+        <input type="text" id="number2" placeholder="Enter a number"></input>
+        <button onclick="addItUp()">=</button>
+        <div id="output3"></div>
+
+        <h1 class="teamheader">Stretch 1</h1>
+
+        <input type="text" id="number3" placeholder="Enter a number"></input>
+        -
+        <input type="text" id="number4" placeholder="Enter a number"></input>
+        <button onclick="subtract()">=</button>
+        <div id="output4"></div><br><br>
+
+
+        <input type="text" id="number5" placeholder="Enter a number"></input>
+        x
+        <input type="text" id="number6" placeholder="Enter a number"></input>
+        <button onclick="multiply()">=</button>
+        <div id="output5"></div>
+
+        <br><br><br><br>
+        <h2><a href="teacherCodeW1.html">Link to teacher's answers</a></h2>
+
+
+    </main>
+    <script src="teamactivity1.js"></script>
+</body>
+
+</html>

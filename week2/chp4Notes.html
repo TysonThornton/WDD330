@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chp 4 Notes</title>
+</head>
+
+<body>
+
+    <h3>Chp 4 Functions</h3>
+
+    <ul>
+        <li>Defining a function
+            <ul>
+                <li>Function declaration</li>
+                <li>function hello(){&sect;&nbsp; console.log('Hello World!');&sect;&nbsp; }</li>
+            </ul>
+        </li>
+        <li>Function expression &ndash; assigns it to a variable
+            <ul>
+                <li>const goodbye = function bye(){&sect;&nbsp; console.log('Goodbye World!');&sect;&nbsp; };</li>
+            </ul>
+        </li>
+        <li>Function() Constructors
+            <ul>
+                <li>This way is not recommended because of needing to put the function body in a string</li>
+                <li>const hi = new Function('console.log("Hi World!");');&nbsp;</li>
+            </ul>
+        </li>
+        <li>Arrow functions
+            <ul>
+                <li>Use the arrow =&gt;</li>
+                <li>They have to be assigned to a variable</li>
+                <li>const square = x =&gt; x*x;</li>
+                <li>Advantages
+                    <ul>
+                        <li>Simpler to write</li>
+                        <li>Single parameters don&rsquo;t nee to be put in parentheses</li>
+                        <li>Body of the function doesn&rsquo;t need to be inside a block it its only one line</li>
+                        <li>The return keyword isn&rsquo;t required if the return statement is the only statement in the
+                            body of the function</li>
+                    </ul>
+                </li>
+                <li>Example &ndash; multiple parameters
+                    <ul>
+                        <li>const add = (x,y) =&gt; x + y;</li>
+                    </ul>
+                </li>
+                <li>Example &ndash; no parameters
+                    <ul>
+                        <li>const hello = () =&gt; alert('Hello World!');</li>
+                    </ul>
+                </li>
+                <li>Example &ndash; longer functions still require curly braces and the return keyword
+                    <ul>
+                        <li>const tax = (salary) =&gt; {&middot;&nbsp;&nbsp;&nbsp;&nbsp; const taxable = salary -
+                            8000;&middot;&nbsp;&nbsp;&nbsp;&nbsp; const lowerRate = 0.25 *
+                            taxable;&middot;&nbsp;&nbsp;&nbsp;&nbsp; taxable = taxable -
+                            20000;&middot;&nbsp;&nbsp;&nbsp;&nbsp; const higherRate = 0.4 *
+                            taxable;&middot;&nbsp;&nbsp;&nbsp;&nbsp; return lowerRate +
+                            higherRate;&middot;&nbsp;&nbsp;&nbsp;&nbsp; }</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Invoking a function
+            <ul>
+                <li>Invoking a function is running the code that&rsquo;s inside the function&rsquo;s body</li>
+                <li>Just type the name of the function followed by parentheses
+                    <ul>
+                        <li>Hello();</li>
+                    </ul>
+                </li>
+                <li>If function has been assigned to variable then just put parenthese after the variable:
+                    <ul>
+                        <li>Goodbye();</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Return Values
+            <ul>
+                <li>All functions return a value, which come after the return keyword
+                    <ul>
+                        <li>&nbsp;function howdy(){&sect;&nbsp; return 'Howdy World!';&sect;&nbsp; }</li>
+                    </ul>
+                </li>
+                <li>When the function is assigned to a variable then the return value becomes the variable value</li>
+                <li>Every function has a variable called arguments which is an array like object that contains every
+                    argument passed to the function
+                    <ul>
+                        <li>Example: this will return the arguments object
+                            <ul>
+                                <li>function arguments(){</li>
+                                <li>return arguments;</li>
+                                <li>}</li>
+                                <li>const message = howdy();&middot;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; 'Howdy World!'
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>Parameters and Arguments
+            <ul>
+                <li>Used interchangeably to represent values provided for the function as an input
+                    <ul>
+                        <li>Parameters: set when the function is defined</li>
+                        <li>Arguments: provided when the function is invoked</li>
+                    </ul>
+                </li>
+                <li>Default Parameters
+                    <ul>
+                        <li>These values are used in the function if no arguments are provided. World is the name
+                            parameter in this example
+                            <ul>
+                                <li>function hello(name='World') {</li>
+                                <li>log(`Hello ${name}!);</li>
+                                <li>}</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Array Iterators
+            <ul>
+                <li>forEach() &ndash; loops through the array and invokes a callback function using each values as an
+                    argument.
+                    <ul>
+                        <li>colors.forEach( (color,index) =&gt;&sect;&nbsp; console.log(`Color at position
+                            ${index}&nbsp; is ${color}`) );&sect;&nbsp; &lt;&lt;&nbsp; "Color at position 0 is
+                            Red"&sect;&nbsp; "Color at position 1 is Green"&sect;&nbsp; "Color at position 2 is Blue"
+                        </li>
+                    </ul>
+                </li>
+                <li>map() &ndash; used to process data returned from databases in array form</li>
+                <li>reduce() &ndash; goes through each value in an array and returns just a single value. You have to
+                    set how you want to combine each value of the array
+                    <ul>
+                        <li>[1,2,3,4,5].reduce( (acc,val) =&gt; prev + val );</li>
+                        <li>&lt;&lt; 15</li>
+                    </ul>
+                </li>
+                <li>Filter() &ndash; returns a new array that only contains items from the original array that return
+                    true when passed to the callback.
+                    <ul>
+                        <li>Example: find even numbers</li>
+                        <li>const numbers = [ 2, 7, 6, 5, 11, 23, 12 ]</li>
+                        <li>filter(x =&gt; x%2 === 0 ); // this returns true if the number is even</li>
+                        <li>&lt;&lt; [ 2, 6, 12 ]</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+
+</html>

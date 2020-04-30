@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chp 3 Notes</title>
+</head>
+
+<body>
+
+    <h3>Chp 3 Arrays, Logic, and Loops</h3>
+
+    <ul>
+        <li>Create array
+            <ul>
+                <li>Const myArray = [];</li>
+                <li>Or</li>
+                <li>Const myArray = new Array();</li>
+            </ul>
+        </li>
+        <li>Add values to arrays
+            <ul>
+                <li>Assign Superman to element 0
+                    <ul>
+                        <li>heroes[0] = 'Superman';</li>
+                    </ul>
+                </li>
+                <li>Not one by one
+                    <ul>
+                        <li>const avengers = ['Captain America', 'Iron Man', 'Thor', 'Hulk'];</li>
+                        <li>&lt;&lt; ['Captain America', 'Iron Man', 'Thor', 'Hulk']</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Delete value from array</li>
+        <ul>
+            <li>delete avengers[3];</li>
+            <li>&lt;&lt; true</li>
+        </ul>
+        <li>Array Properties
+            <ul>
+                <li>Find the length of array called avengers
+                    <ul>
+                        <li>length;</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Merge arrays with concat()</li>
+        <ul>
+            <li>avengers = avengers.concat(['Hulk','Hawkeye', 'Black Widow']);</li>
+        </ul>
+        <li>join() method
+            <ul>
+                <li>turns the array into a string separated by commas</li>
+                <li>join();</li>
+                <li>&lt;&lt; 'Captain America, Iron Man, Thor, Hulk, Hawkeye, Black Widow'</li>
+            </ul>
+        </li>
+        <li>Reverse the array &ndash; reverse()
+            <ul>
+                <li>reverse();</li>
+            </ul>
+        </li>
+        <li>Sort the array &ndash; sort()
+            <ul>
+                <li>Sorting is alphabetical by default for string objects</li>
+                <li>sort();</li>
+                <li>&lt;&lt; ['Black Widow', 'Captain America', 'Hawkeye', 'Iron Man', 'Quicksilver', 'ScarletWitch']
+                </li>
+            </ul>
+        </li>
+        <li>Search for a value in an array &ndash; indexOf()
+            <ul>
+                <li>indexOf('Iron Man');</li>
+                <li>&lt;&lt; 3</li>
+                <li>OR use includes()
+                    <ul>
+                        <li>includes('Iron Man');</li>
+                        <li>&lt;&lt; true</li>
+                        <li>includes('Thor');</li>
+                        <li>&lt;&lt; false</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Sets
+            <ul>
+                <li>A collection of unique values &ndash; no duplicate values</li>
+                <li>Create
+                    <ul>
+                        <li>const list = new Set();</li>
+                    </ul>
+                </li>
+                <li>Add values to a set
+                    <ul>
+                        <li>add(2).add(3).add(4);</li>
+                        <li>&lt;&lt; Set { 1, 2, 3, 4 }</li>
+                        <li>OR const numbers = new Set([1,2,3]);</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Maps
+            <ul>
+                <li>Keeps a list of key and value pairs</li>
+                <li>Create maps
+                    <ul>
+                        <li>const romanNumerals = new Map();</li>
+                    </ul>
+                </li>
+                <li>Add entries
+                    <ul>
+                        <li>set(2,'II').set(3,'III').set(4,'IV').set(5,'V');</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Logic
+            <ul>
+                <li>If statements
+                    <ul>
+                        <li>if (condition) {</li>
+                        <li>// code to run if condition is true</li>
+                    </ul>
+                </li>
+                <li>}else statements
+                    <ul>
+                        <li>if (condition) {</li>
+                        <li>// code to run if condition is true</li>
+                        <li>} else {</li>
+                        <li>// code to run if condition is false</li>
+                        <li>}</li>
+                    </ul>
+                </li>
+                <li>Switch Statements
+                    <ul>
+                        <li>switch (number) {
+                            <ul>
+                                <li>case 4:</li>
+                                <li>log('You rolled a four');</li>
+                                <li>break;</li>
+                                <li>case 5:</li>
+                                <li>log('You rolled a five');</li>
+                                <li>break;</li>
+                                <li>case 6:</li>
+                                <li>log('You rolled a six');</li>
+                                <li>break;</li>
+                                <li>default:</li>
+                                <li>log('You rolled a number less than four');</li>
+                                <li>break;</li>
+                                <li>}</li>
+                                <li>Is the same as:</li>
+                            </ul>
+                        </li>
+                        <li>if (number === 4) {</li>
+                        <li>log('You rolled a four');</li>
+                        <li>} else if (number === 5) {</li>
+                        <li>log('You rolled a five');</li>
+                        <li>} else if(number === 6){</li>
+                        <li>log('You rolled a six');</li>
+                        <li>} else {</li>
+                        <li>log('You rolled a number less than four');</li>
+                        <li>}</li>
+                    </ul>
+                </li>
+                <li>While loops
+                    <ul>
+                        <li>while (condition) {</li>
+                        <li>// do something</li>
+                        <li>}</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <ul>
+        <li>Do While loops
+            <ul>
+                <li>do {</li>
+                <li>do something</li>
+                <li>} while(condition)</li>
+            </ul>
+        </li>
+        <li>For Loops
+            <ul>
+                <li>for (initialization ; condition ; after) { do something }</li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+
+</html>
