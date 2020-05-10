@@ -17,3 +17,4 @@ function loadStory() //grabs the value in name_input and saves it as storyName. 
     var storyHTML = localStorage.getItem(storyName)
     document.getElementById("story_editor").value = storyHTML
 }
+

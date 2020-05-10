@@ -13,11 +13,11 @@
                 window.alert("Invalid number. Please try again.");
             }
 
-                var sum = 0;
+            var sum = 0;
 
-                for (var start = 1; start <= numberInput; start++) {
-                    sum += start;
-                }
+            for (var start = 1; start <= numberInput; start++) {
+                sum += start;
+            }
 
             document.getElementById("output2").innerHTML = "The sum of all numbers up to and including " + numberInput + " is " + sum + "."
 
@@ -43,8 +43,9 @@
 
         //Stretch problem 2
         const multiply = () => {
-                let numberInput5 = parseInt(document.getElementById('number5').value);
-                let numberInput6 = parseInt(document.getElementById('number6').value);
-                let answer2 = numberInput5 * numberInput6;
-                document.getElementById("output5").innerHTML = answer2;
+            let numberInput5 = parseInt(document.getElementById('number5').value);
+            let numberInput6 = parseInt(document.getElementById('number6').value);
+            let answer2 = numberInput5 * numberInput6;
+            document.getElementById("output5").innerHTML = answer2;
         }
+

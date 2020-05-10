@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Notes</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+    <p>Chp 5: Objects</p>
+    <ul>
+        <li>Arrays and Functions are built in Objects. There can also be user defined objects.</li>
+        <li>Object Literal
+            <ul>
+                <li>Javascript Object: self-contained set of related values and functions</li>
+                <li>Its like a database of values.</li>
+                <li>An object is created in Javascript by wrapping all its properties and methods in curly braces.</li>
+                <li>Example</li>
+            </ul>
+        </li>
+    </ul>
+    <p style="padding-left: 90px;">const superman = {</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; name: 'Superman',</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; 'real name': 'Clark Kent',</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; height: 75,</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; weight: 235,</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; hero: true,</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; villain: false,</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; allies: ['Batman','Supergirl','Superboy'],</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; fly() {</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 'Up, up and away!';</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; }</p>
+    <p style="padding-left: 90px;">};</p>
+    <ul>
+        <li>Call method
+            <ul>
+                <li>fly()
+                    <ul>
+                        <li>&lt;&lt; 'Up, up and away!'</li>
+                    </ul>
+                </li>
+                <li>superman['fly']()
+                    <ul>
+                        <li>&lt;&lt; 'Up, up and away!'</li>
+                    </ul>
+                </li>
+                <li>Loop through an object&rsquo;s properties and methods
+                    <ul>
+                        <li>USE FOR IN LOOP
+                            <ul>
+                                <li>for(const key in superman) {</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p style="padding-left: 120px;">&nbsp;&nbsp;&nbsp; console.log(key + ": " + superman[key]);</p>
+    <p style="padding-left: 120px;">}</p>
+    <p style="padding-left: 120px;">&lt;&lt; "name: Superman"</p>
+    <p style="padding-left: 120px;">&lt;&lt; "real name: Clark Kent"</p>
+    <p style="padding-left: 120px;">&lt;&lt; "height: 75"</p>
+    <p style="padding-left: 120px;">&lt;&lt; "weight: 235"</p>
+    <p style="padding-left: 120px;">&lt;&lt; "hero: true"</p>
+    <p style="padding-left: 120px;">&lt;&lt; "villain: false"</p>
+    <p style="padding-left: 120px;">&lt;&lt; "allies: Batman,Supergirl,Superboy"</p>
+    <p style="padding-left: 120px;">&lt;&lt; "fly: function (){</p>
+    <p style="padding-left: 120px;">&nbsp; console.log(\"Up, up and away!\");</p>
+    <p style="padding-left: 120px;">}"</p>
+    <ul>
+        <li>This
+            <ul>
+                <li>Refers to the object that it is within. Used to gain access to the object&rsquo;s properties</li>
+                <li>Example</li>
+            </ul>
+        </li>
+    </ul>
+    <p style="padding-left: 90px;">const dice = {</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; sides: 6,</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp; roll() {</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return Math.floor(this.sides *
+        Math.random()) + 1;</p>
+    <p style="padding-left: 90px;">&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+    <p style="padding-left: 90px;">}</p>
+    <ul>
+        <li>JSON
+            <ul>
+                <li>Looks like an object but the property names are double quoted</li>
+            </ul>
+        </li>
+        <li>Math object
+            <ul>
+                <li>Built in object that can do a ton of mathematical operations</li>
+                <li>Math Methods
+                    <ul>
+                        <li>Absolute values: Math.abs()</li>
+                        <li>Rounding
+                            <ul>
+                                <li>ceil()</li>
+                                <li>floor()</li>
+                                <li>round()</li>
+                                <li>trunc()</li>
+                            </ul>
+                        </li>
+                        <li>Powers and Roots
+                            <ul>
+                                <li>exp()</li>
+                                <li>pow()</li>
+                                <li>sqrt()</li>
+                                <li>cbrt()</li>
+                                <li>hpot()</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>Chp 6 The Document Object Model</p>
+    <ul>
+        <li>DOM allows access to elements of a web page and enable interaction with the page by adding and removing
+            elements, changing the order, content and attributes of elements, and can also alter how they are styled
+        </li>
+        <li>DOM treats everything on a website as a node which is just an HTML element</li>
+        <li>Getting Elements
+            <ul>
+                <li>ID
+                    <ul>
+                        <li>const h1 = document.getElementById('title');</li>
+                    </ul>
+                </li>
+                <li>Tag name
+                    <ul>
+                        <li>const listItems = document.getElementsByTagName('li');</li>
+                    </ul>
+                </li>
+                <li>Class name
+                    <ul>
+                        <li>const heroes = document.getElementsByClassName('hero');</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>Chp 7 Events</p>
+    <ul>
+        <li>Event listener: in JS they are like setting a notification to alert you when something happens.</li>
+        <li>Example: attach even listener to document for when user clicks on the page
+            <ul>
+                <li>body.addEventListener("click", doSomething);</li>
+            </ul>
+        </li>
+        <li>Types of Events
+            <ul>
+                <li>Mouse events</li>
+                <li>Keyboard events</li>
+                <li>Modifier keys</li>
+                <li>Touch events</li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+
+</html>

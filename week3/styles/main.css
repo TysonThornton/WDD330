@@ -27,6 +27,7 @@ nav ul li a {
 }
 
 
+
 textarea {
    width: 800px;
    height: 250px;
@@ -39,6 +40,9 @@ textarea {
    display: block;
 }
 
+.notes {
+   font-size: 11px;
+}
 
 
 /* id selectors */
