@@ -1,0 +1,19 @@
+label {
+    min-width: 90px;
+    display: inline-block;
+    text-align: right;
+}
+
+
+
+table, tr, th, td {
+
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 5px;
+
+}
+
+table {
+    margin-bottom: 50px;
+}

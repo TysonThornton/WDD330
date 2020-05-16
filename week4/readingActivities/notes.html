@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Notes</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+
+
+
+
+</head>
+
+<body>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#" id="menu">&equiv; Menu</a></li>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../week1/index.html">Week 1</a></li>
+            <li><a href="../../week2/index.html">Week 2</a></li>
+            <li><a href="../../week3/index.html">Week 3</a></li>
+            <li><a href="../../week4/index.html">Week 4</a></li>
+            <li><a href="../week5/">Week 5</a></li>
+            <li><a href="../week6/">Week 6</a></li>
+            <li><a href="../week7/">Week 7</a></li>
+            <li><a href="../week8/">Week 8</a></li>
+            <li><a href="../week9/">Week 9</a></li>
+            <li><a href="../week10/">Week 10</a></li>
+            <li><a href="../week11/">Week 11</a></li>
+            <li><a href="../week12/">Week 12</a></li>
+            <li><a href="../week13/">Week 13</a></li>
+            <li><a href="../week14/">Week 14</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Reading Notes</h1><br>
+    </header>
+    <main>
+        <h2>Chp 8: Forms</h2>
+        <a href="forms.js">Forms Reading Activity</a>
+        <p>Forms</p>
+        <ul>
+            <li>Traditionally: info on form submitted and sent to a server where PHP or Ruby would process it.</li>
+            <li>Now: can process info in a form on the front end before its sent to the server using JavaScript</li>
+            <li>Simple form example:</li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>&nbsp; &nbsp;&nbsp;&lt;form name='search' action='/search'&gt;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input name='searchInput'&gt;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button type='submit'&gt;Search&lt;/button&gt;</p>
+        <p>&nbsp;&nbsp;&nbsp; &lt;/form&gt;</p>
+        <p>&nbsp;</p>
+        <p>Accessing Form Elements</p>
+        <ul>
+            <li>To receive info submitted in form use this:
+                <ul>
+                    <li>const form = document.forms[0];</li>
+                    <li>Which is the same as const form
+                        <ul>
+                            <li>getElementsByTagname('form')[0];</li>
+                        </ul>
+                    </li>
+                    <li>You can also use the name of the name of the attribute in the form:
+                        <ul>
+                            <li>const form = document.forms['search'];</li>
+                        </ul>
+                    </li>
+                    <li>The object form used above also has a method called elements that returns a collection of all
+                        the elements in the form. This form has two elements in it and the values of those are set to be
+                        put into variables:
+                        <ul>
+                            <li>const [input,button] = form.elements;</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>Form Properties and Methods</p>
+        <ul>
+            <li>Ways to submit info on a form:
+                <ul>
+                    <li>&lt;button type='submit'&gt;Submit&lt;/button&gt;</li>
+                    <li>&lt;input type='submit' value='Submit'&gt;</li>
+                    <li>&lt;input type='image' src='button.png'&gt;</li>
+                </ul>
+            </li>
+            <li>Reset form controls back to initial values
+                <ul>
+                    <li>&lt;button type='reset'&gt;Reset&lt;/button&gt;</li>
+                </ul>
+            </li>
+            <li>Can send info to a different URL to be processed on the server using action property
+                <ul>
+                    <li>action = '/an/other.url'</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Form Events</p>
+        <ul>
+            <li>focus event: on an &lt;input&gt; element the focus is when the cursor is placed inside the element.
+                <ul>
+                    <li>This would be the JS for that and it creates a pop up alert with &lsquo;focused&rsquo; in it:
+                        <ul>
+                            <li>const input = form.elements.searchInput;</li>
+                            <li>addEventListener('focus', () =&gt; alert('focused'), false);</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>blur event
+                <ul>
+                    <li>This would blur the form. Add this to JS:
+                        <ul>
+                            <li>addEventListener('blur', () =&gt; alert('blurred'), false);</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>change event
+                <ul>
+                    <li>when user moves the focus away from the form after changing it. Add this to JS
+                        <ul>
+                            <li>addEventListener('change', () =&gt; alert('changed'), false);</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>submit event
+                <ul>
+                    <li>usually this would send content to the server to be processed, but JS can intercept the form
+                        before its sent by adding a submit event listener. JS for that
+                        <ul>
+                            <li>const form = document.forms['search'];</li>
+                            <li>addEventListener ('submit', search, false);</li>
+                            <li>function search() {</li>
+                            <li>alert(' Form Submitted');</li>
+                            <li>}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>Set value of inputs in form and retrieving them</p>
+        <ul>
+            <li>Retrieving the value.</li>
+            <li><strong>Text input element objects have a value property.</strong>
+                <ul>
+                    <li>JS Example
+                        <ul>
+                            <li>function search(event) {</li>
+                            <li>alert(`You Searched for: ${input.value}`);</li>
+                            <li>preventDefault();</li>
+                            <li>}</li>
+                        </ul>
+                    </li>
+                    <li>Set the default value of an input
+                        <ul>
+                            <li>value = 'Search Here';</li>
+                            <li>You have to use the focus and blur event handlers with this though so the text
+                                disappears when the user clicks in the field to add info</li>
+                            <li>Placeholder attribute is a good alternative
+                                <ul>
+                                    <li>&lt;input type='text' name='search-box' placeholder='Search Here'&gt;</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>Form Controls</p>
+        <ul>
+            <li>&lt;input&gt; fields, including text, passwords, check boxes, radio buttons, and file uploads</li>
+            <li>&lt;select&gt; menus for drop-down lists of options</li>
+            <li>&lt;textarea&gt; elements for longer text entry</li>
+            <li>&lt;button&gt; elements for submitting and resetting forms</li>
+            <li>Example:
+                <ul>
+                    <li>&lt;form id='hero'&gt;</li>
+                    <li>&lt;label for='heroName'&gt;Name:</li>
+                    <li>&lt;input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name'
+                        maxlength=32&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                    <li>&lt;button type='submit'&gt;Submit&lt;/button&gt;</li>
+                    <li>&lt;/form&gt;</li>
+                </ul>
+            </li>
+            <li>Autofocus attribute: focuses on an element when page loads</li>
+        </ul>
+        <p>Input Fields</p>
+        <ul>
+            <li>Text
+                <ul>
+                    <li>&lt;label for='donation-amount'&gt;Enter amount to donate:</li>
+                    <li>&lt;input type='text' id ='donation-amount' name='donationAmount' value='10'&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                </ul>
+            </li>
+            <li>Password: like text but characters are concealed as they are typed.
+                <ul>
+                    <li>&lt;label for='realName'&gt;Real Name:</li>
+                    <li>&lt;input type='password' name='realName' id='realName'&gt;&lt;/label&gt;</li>
+                </ul>
+            </li>
+            <li>Checkbox: can be used for True False selection or create a multiple choice list
+                <ul>
+                    <li>&lt;p&gt;Super Powers:&lt;/p&gt;</li>
+                    <li>&lt;label for='flight'&gt;Flight:</li>
+                    <li>&lt;input type='checkbox' id='flight' value='Flight' name='powers'&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                    <li>&lt;label for='strength'&gt;Super Strength:</li>
+                    <li>&lt;input type='checkbox' id='strength' value='Strength' name='powers'&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                    <li>&lt;label for='speed'&gt;Super Speed:</li>
+                    <li>&lt;input type='checkbox' id='speed' value='Super Speed' name='powers'&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                    <li>&lt;label for='energy'&gt;Energy Blasts:</li>
+                    <li>&lt;input type='checkbox' id='energy' value='Energy Blasts' name='powers'&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                    <li>&lt;label for='telekinesis'&gt;Telekinesis:</li>
+                    <li>&lt;input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                </ul>
+            </li>
+            <li>Check to see which options were checked with this JS. Creates property powers for the hero object which
+                is an empty array:
+                <ul>
+                    <li>powers = [];</li>
+                    <li>for (let i=0; i &lt; form.powers.length; i++) {</li>
+                    <li>if (form.powers[i].checked) {</li>
+                    <li>powers.push(form.powers[i].value);</li>
+                    <li>}</li>
+                    <li>}</li>
+                </ul>
+            </li>
+            <li>Radio buttons
+                <ul>
+                    <li>&lt;p&gt;What type of hero are you?&lt;/p&gt;</li>
+                    <li>&lt;label for='hero'&gt;Hero:</li>
+                    <li>&lt;input type='radio' name='category' value='Hero' id='hero'&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                    <li>&lt;label for='villain'&gt;Villain:</li>
+                    <li>&lt;input type='radio' name='category' value='Villain' id='villain'&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                    <li>&lt;label for='anti-hero'&gt;Anti-Hero:</li>
+                    <li>&lt;input type='radio' name='category' value='Antihero' id='anti-hero'&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                </ul>
+            </li>
+            <li>Select drop-down list
+                <ul>
+                    <li>&lt;label for='City'&gt;Base of Operations:</li>
+                    <li>&lt;select name='city' id='city'&gt;</li>
+                    <li>&lt;option value='' selected&gt;Choose a City&lt;/option&gt;</li>
+                    <li>&lt;option value='Metropolis'&gt;Metropolis&lt;/option&gt;</li>
+                    <li>&lt;option value='Gotham City'&gt;Gotham City&lt;/option&gt;</li>
+                    <li>&lt;option value='Keystone City'&gt;Keystone City&lt;/option&gt;</li>
+                    <li>&lt;option value='Coast City'&gt;Coast City&lt;/option&gt;</li>
+                    <li>&lt;option value='Star City'&gt;Star City&lt;/option&gt;</li>
+                    <li>&lt;/select&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                </ul>
+            </li>
+            <li>Text areas
+                <ul>
+                    <li>&lt;label for='origin'&gt;Origin Story:</li>
+                    <li>&lt;textarea id='origin' name='origin' rows='20' cols='60'&gt;&lt;/textarea&gt;</li>
+                    <li>&lt;/label&gt;</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Form Validation</p>
+        <ul>
+            <li>Check for:
+                <ul>
+                    <li>A required field is completed</li>
+                    <li>An email address is valid</li>
+                    <li>A number is entered when numerical data is required</li>
+                    <li>A password is at least a minimum number of characters</li>
+                </ul>
+            </li>
+            <li>Use the required attribute</li>
+            <li>Can use JS:
+                <ul>
+                    <li>addEventListener('submit',validate,false);</li>
+                    <li>function validate(event) {</li>
+                    <li>const firstLetter = form.heroName.value[0];</li>
+                    <li>if (firstLetter.toUpperCase() === 'X') {</li>
+                    <li>preventDefault();</li>
+                    <li>alert('Your name is not allowed to start with X!');</li>
+                    <li>}</li>
+                    <li>}</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <h2>Chp 12 Object-Oriented Programming in JavaScript</h2>
+        <p>3 main concepts</p>
+        <ul>
+            <li>Encapsulation
+                <ul>
+                    <li>Inner workings are kept hidden inside the object and only the essential functionalities are
+                        exposed to the end user. All programming logic is inside the object</li>
+                </ul>
+            </li>
+            <li>Polymorphism
+                <ul>
+                    <li>The same process can be used for different objects. Various objects can share the same method,
+                        but also have the ability to override shared methods with a more specific implementation.</li>
+                </ul>
+            </li>
+            <li>Inheritance
+                <ul>
+                    <li>Taking the features of one object then adding some new features. We can take an object that
+                        already exists and inherit all its properties and methods. We can then improve on its
+                        functionality by adding new properties and methods.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Classes</p>
+        <ul>
+            <li>Java is a class based langues. Classes define a blueprint for an object. Objects inherit all the
+                properties and methods of the class.</li>
+            <li>JavaScript has classes as of ES6.</li>
+        </ul>
+        <p>Constructors</p>
+        <ul>
+            <li>Look at Office Hours JS for example</li>
+        </ul>
+
+    </main>
+
+
+
+
+
+    <script src="../../scripts/main.js"></script>
+
+</body>
+
+</html>

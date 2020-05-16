@@ -1,0 +1,49 @@
+
+/* Commenting out CSS below, it included incorrect borders 
+.ticTac {
+    width: 400px;
+    height: 400px;
+    margin: 0px;
+  }
+  .ticTac td,
+  .ticTac tr {
+    width: 33.3%;
+    height: 33.3%;
+  }
+  .ticTac td {
+    border: 1px solid;
+    font-size: 5em;
+    text-align: center;
+  }
+
+  */
+
+/* Without outside borders - stretch goal */
+
+.ticTac {
+    width: 400px;
+    height: 400px;
+    margin: 0px;
+  }
+  .ticTac td,
+  .ticTac tr {
+    width: 33.3%;
+    height: 33.3%;
+  }
+  /* Build bottom and right borders first */
+  .ticTac td {
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    font-size: 5em;
+    text-align: center;
+  }
+
+  /* Remove the outside borders */
+    .ticTac td:last-child {
+    border-right: none;
+  }
+
+  .ticTac tr:last-child td {
+    border-bottom: none;
+  }
+
