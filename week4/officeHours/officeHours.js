@@ -23,7 +23,7 @@ let student2 = {
     lastName: 'Harris',
     iNumber: '83452898'
 };
-
+ 
 // log out a specific value from an object
 console.log(student2.lastName);
 
