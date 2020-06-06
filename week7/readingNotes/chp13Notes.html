@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chp 13 Notes: AJAX</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#" id="menu">&equiv; Menu</a></li>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../week1/index.html">Week 1</a></li>
+            <li><a href="../../week2/index.html">Week 2</a></li>
+            <li><a href="../../week3/index.html">Week 3</a></li>
+            <li><a href="../../week4/index.html">Week 4</a></li>
+            <li><a href="../../week5/index.html">Week 5</a></li> 
+            <li><a href="../../week6/index.html">Week 6</a></li>
+            <li><a href="../index.html">Week 7</a></li>
+            <li><a href="../week8/">Week 8</a></li>
+            <li><a href="../week9/">Week 9</a></li>
+            <li><a href="../week10/">Week 10</a></li>
+            <li><a href="../week11/">Week 11</a></li>
+            <li><a href="../week12/">Week 12</a></li>
+            <li><a href="../week13/">Week 13</a></li>
+            <li><a href="../week14/">Week 14</a></li>
+        </ul>
+    </nav>
+    <h2>Chp 13 Notes: AJAX</h2>
+
+    <main>
+        <h3><a href="./ajax.html">Example of Receiving Information with AJAX</a></h3>
+        <h3><a href="./todo.html">Example of Sending Information with AJAX</a></h3><br>
+        <ul>
+            <li>Ajax: a technique that allows web pages to communicate <strong>asynchronously </strong>with a server and it dynamically updates web pages without reloading. This means this can run in the background while the rest of the program runs</li>
+            <li>JavaScript is a single-threaded programming language which means only one thing can happen at a time. ... That's where <strong>asynchronous</strong> JavaScript comes into play. Using asynchronous JavaScript (such as callbacks, promises, and async/await), you can perform long network requests without blocking the main thread</li>
+            <li>AJAX allows JavaScript to request resources from a server on behalf of the client. The resources requested are usually JSON data or small gragments of text or HTML</li>
+            <li>AJAX stands for:
+            <ul>
+            <li>Asynchronous
+            <ul>
+            <li>When a request for data is sent, the program doesn&rsquo;t have to stop and wait for the response. It can carry on running, waiting for an event to fire when a response is received. By using callbacks to manage this, programs are able to run in an efficient way, avoiding lag as data is transferred back and forth.</li>
+            </ul>
+            </li>
+            <li>JavaScript
+            <ul>
+            <li>JavaScript was always considered a 'front-end' language, not used to communicate with the server. Ajax enabled JavaScript to send requests and receive responses from a server, allowing content to be updated in real time.</li>
+            </ul>
+            </li>
+            <li>XML
+            <ul>
+            <li>When the term Ajax was originally coined, XML documents were often used to return data. Many different types of data can be sent, but by far the most commonly used in Ajax nowadays is JSON, which is more lightweight and easier to parse than XML. (Although it has never really taken off, the term<a href="http://en.wikipedia.org/wiki/AJAJ">Ajaj is sometimes used to describe the technique.)</a>JSON also has the advantage of being natively supported in JavaScript, so you can deal with JavaScript objects rather than having to parse XML files using DOM methods.</li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+            <p>Fetch API</p>
+            <ul>
+            <li>Fetch API: used for requesting and sending data asynchronously across a network. It replaced XMLHttpRequest object.</li>
+            <li>Fetch API provides a global fetch() method. The URL of the resource you want to fetch is the only argument.
+            <ul>
+            <li>fetch('https://example.com/data')</li>
+            <li>.then( // code that handles the response )</li>
+            <li>.catch( // code that runs if the server returns an error )</li>
+            </ul>
+            </li>
+            <li>Response Interface
+            <ul>
+            <li>This deals with the object that is returned when the promise is fulfilled</li>
+            <li>Each response object has an ok property that checks to see if the response is successful
+            <ul>
+            <li>Based on the HTTP status code which usually is 200 if response was successful, 201 if a resource was created, 204 when the request is successful but not content is returned</li>
+            <li>Ok property returns true if status property is between 200-299</li>
+            </ul>
+            </li>
+            <li>Example
+            <ul>
+            <li>const url = 'https:example.com/data';</li>
+            <li>fetch(url)</li>
+            <li>.then((response) =&gt; {</li>
+            <li>if(response.ok) {</li>
+            <li>return response;</li>
+            <li>}</li>
+            <li>throw Error(response.statusText);</li>
+            <li>})</li>
+            <li>.then( response =&gt; // do something with response )</li>
+            <li>.catch( error =&gt; console.log('There was an error!') )</li>
+            </ul>
+            </li>
+            <li>Other properties of the Response object
+            <ul>
+            <li>headers &ndash; A Headers object (see later section) containing any headers associated with the response</li>
+            <li>url &ndash; A string containing the URL of response</li>
+            <li>redirected &ndash; A boolean value that specifies if the response is the result of a redirect</li>
+            <li>type &ndash; A string value of 'basic', 'cors', 'error' or 'opaque'. A value of 'basic' is used for a response from the same domain. A value of 'cors' means the data was received from a valid cross-origin request from a different domain. A value of 'opaque' is used for a response received from 'no-cors' request from another domain, which means access to the data will be severely restricted. A value of 'error' is used when a network error occurs.</li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+            <p>Other Methods Used in Fetch API</p>
+            <ul>
+            <li>Redirect(): redirect to another URL
+            <ul>
+            <li>fetch(url)</li>
+            <li>.then( response =&gt; response.redirect(newURL)); // redirects to another URL</li>
+            <li>.then( // do something else )</li>
+            <li>.catch( error =&gt; console.log('There was an error: ', error))</li>
+            </ul>
+            </li>
+            <li>Text(): takes a stream of text from response then returns it as a string in JavaScript
+            <ul>
+            <li>fetch(url)</li>
+            <li>.then( response =&gt; response.text() ); // transforms the text stream into a JavaScript string</li>
+            <li>.then( text =&gt; console.log(text) )</li>
+            <li>.catch( error =&gt; console.log('There was an error: ', error))</li>
+            </ul>
+            </li>
+            <li>Blob(): read a file of raw data like an image or spreadsheet.
+            <ul>
+            <li>fetch(url)</li>
+            <li>.then( response =&gt; response.blob() ); // transforms the data into a blob object</li>
+            <li>.then( blob =&gt; console.log(blob.type) )</li>
+            <li>.catch( error =&gt; console.log('There was an error: ', error))</li>
+            </ul>
+            </li>
+            <li>Json(): most common format for AJAX responses. Transforms a stream of JSON data into a promise that resolves to a JavaScript object.
+            <ul>
+            <li>fetch(url)</li>
+            <li>.then( response =&gt; response.json() ); // transforms the JSON data into a JavaScript object</li>
+            <li>.then( data =&gt; console.log(Object.entries(data)) )</li>
+            <li>.catch( error =&gt; console.log('There was an error: ', error))</li>
+            </ul>
+            </li>
+            </ul>
+            <p>Request Interface</p>
+            <ul>
+            <li>Can set a number of options with the request
+            <ul>
+            <li>url &ndash; The URL of the requested resource (the only property that is required).</li>
+            <li>method &ndash; a string that specifies which HTTP method should be used for the request. By default, this is 'GET'.</li>
+            <li>headers &ndash; This is a Headers object (see later section) that provides details of the request's headers.</li>
+            <li>mode &ndash; Allows you to specify if CORS is used or not. CORS is enabled by default.</li>
+            <li>&nbsp;cache &ndash; Allows you to specify how the request will use the browser's cache. For example, you can force it to request a resource and update the cache with the result, or you can force it to only look in the cache for the resource.</li>
+            <li>credentials &ndash; Lets you specify if cookies should be allowed with the request.</li>
+            <li>redirect &ndash; Specifies what to do if the response returns a redirect. There&rsquo;s a choice of three values: 'follow' (the redirect is followed), 'error' (an error is thrown) or 'manual' (the user has to click on a link to follow the redirect).</li>
+            </ul>
+            </li>
+            <li>Example
+            <ul>
+            <li>const request = new Request('https://example.com/data', {</li>
+            <li>method: 'GET',</li>
+            <li>mode: 'cors',</li>
+            <li>redirect: 'follow',</li>
+            <li>cache: 'no-cache'</li>
+            <li>});</li>
+            </ul>
+            </li>
+            </ul>
+            <p>Headers Interface</p>
+            <ul>
+            <li>HTTP headers are used to pass on any additional information about a request or response.</li>
+            <li>Headers usually contain: file-type of the resource, cookie info, authentication info, when resource was last modified</li>
+            <li>Create new Headers instance
+            <ul>
+            <li>const headers = new Headers();</li>
+            </ul>
+            </li>
+            <li>Can also contain arguments
+            <ul>
+            <li>const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate' })</li>
+            </ul>
+            </li>
+            <li>Headers object has the following properties and methods
+            <ul>
+            <li>Has(): check if headers object contains header as an argument</li>
+            <li>Get(): returns the value of the header provided as an argument</li>
+            <li>Set(): set a value of an already existing header</li>
+            </ul>
+            </li>
+            </ul>
+            <p>Example of headers, request and response objects all being used together</p>
+            <ul>
+            <li>const url = 'https:example.com/data';</li>
+            <li>const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate' })</li>
+            <li>const request = (url,{</li>
+            <li>headers: headers</li>
+            <li>})</li>
+            <li>fetch(request)</li>
+            <li>.then( function(response) {</li>
+            <li>if(response.ok) {</li>
+            <li>return response;</li>
+            <li>}</li>
+            <li>throw Error(response.statusText);</li>
+            <li>})</li>
+            <li>.then( response =&gt; // do something with response )</li>
+            <li>.catch( error =&gt; console.log('There was an error!') )</li>
+            </ul>
+    </main>
+
+
+
+
+    <script src="../../scripts/main.js"></script>
+</body>
+</html>

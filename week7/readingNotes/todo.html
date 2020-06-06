@@ -1,0 +1,20 @@
+<!-- 
+    This creates a To Do list application that sends info about a task to a server in JSON format
+    then receives a response to confirm that the task has been saved on a server
+    No server is setup so we're using a dummy site called JSONPlaceholder - using the fake todo API from there
+-->
+
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <title>To Do List</title>
+</head>
+<body>
+    <form id='todo' action='https://jsonplaceholder.typicode.com/todos' method='POST'>
+        <input type='text' name='task'  placeholder='Add Task' autofocus required>
+        <button type='submit'>Add Task</button>
+    </form>
+    <script src='todo.js'></script>
+</body>
+</html>

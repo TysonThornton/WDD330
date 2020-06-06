@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chp 11 Notes: Further Functions</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+<body>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#" id="menu">&equiv; Menu</a></li>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../week1/index.html">Week 1</a></li>
+            <li><a href="../../week2/index.html">Week 2</a></li>
+            <li><a href="../../week3/index.html">Week 3</a></li>
+            <li><a href="../../week4/index.html">Week 4</a></li>
+            <li><a href="../../week5/index.html">Week 5</a></li>
+            <li><a href="../../week6/index.html">Week 6</a></li>
+            <li><a href="../index.html">Week 7</a></li>
+            <li><a href="../week8/">Week 8</a></li>
+            <li><a href="../week9/">Week 9</a></li>
+            <li><a href="../week10/">Week 10</a></li>
+            <li><a href="../week11/">Week 11</a></li>
+            <li><a href="../week12/">Week 12</a></li>
+            <li><a href="../week13/">Week 13</a></li>
+            <li><a href="../week14/">Week 14</a></li>
+        </ul>
+    </nav>
+    <h2>Chp 11 Notes: Further Functions</h2>
+
+    <main>
+        <p>Errors, Exceptions, and Warnings</p>
+        <ul>
+            <li>Cause by one of the following:
+                <ul>
+                    <li>System error ― there&rsquo;s a problem with the system or external devices with which the
+                        program is interacting.</li>
+                    <li>Programmer error ― the program contains incorrect syntax or faulty logic; it could even be as
+                        simple as a typo.</li>
+                    <li>User error ― the user has entered data incorrectly, which the program is unable to handle.</li>
+                </ul>
+            </li>
+            <li>Exception
+                <ul>
+                    <li>Error that produces return value</li>
+                    <li>Stack Trace: works backwards from the point where the error occurred to identify the original
+                        function or method that started the sequence</li>
+                    <li>Warnings: there isn&rsquo;t an error in code big enough to cause program to crash. Program still
+                        runs after warning.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Importance</p>
+        <ul>
+            <li>In development = code fails should be loud making errors easy to identify</li>
+            <li>In production = code fails should be graceful but not silent so it doesn&rsquo;t affect user experience
+            </li>
+        </ul>
+        <p>Strict mode</p>
+        <ul>
+            <li>Add &lsquo;use strict&rsquo;; to first line of JavaScript file which will produce more exceptions and
+                warnings. Poor style now becomes errors.</li>
+        </ul>
+        <p>Linting Tools</p>
+        <ul>
+            <li>JS Lint, JS Hint, ES Lint</li>
+            <li>They highlight any sloppy programming practices or syntax errors.</li>
+        </ul>
+        <p>Debugging in the Browser</p>
+        <ul>
+            <li>Use aler() method
+                <ul>
+                    <li>Stops a program from running until OK is clicked which acts as a breakpoint in the code to be
+                        able to check it.</li>
+                    <li>Example
+                        <ul>
+                            <li>function amIOldEnough(age){</li>
+                            <li>if (age = 12) {</li>
+                            <li>alert(age);</li>
+                            <li>return 'No, sorry.';</li>
+                            <li>} else if (age &lt; 18) {</li>
+                            <li>return 'Only if you are accompanied by an adult.';</li>
+                            <li>}</li>
+                            <li>else {</li>
+                            <li>return 'Yep, come on in!';</li>
+                            <li>}</li>
+                            <li>}</li>
+                        </ul>
+                    </li>
+                    <li>Use the Console
+                        <ul>
+                            <li>Add console.log() to the code as a breakpoint</li>
+                            <li>Example
+                                <ul>
+                                    <li>function amIOldEnough(age){</li>
+                                    <li>log(age);</li>
+                                    <li>if (age &lt; 12) {</li>
+                                    <li>log(`In the if with ${age}`);</li>
+                                    <li>return 'No, sorry.';</li>
+                                    <li>} else if (age &lt; 18) {</li>
+                                    <li>log(`In the else-if with ${age}`);</li>
+                                    <li>return 'Only if you are accompanied by an adult.';</li>
+                                    <li>} else {</li>
+                                    <li>log(`In the else with ${age}`);</li>
+                                    <li>return 'Yep, come on in!';</li>
+                                    <li>}</li>
+                                    <li>}</li>
+                                </ul>
+                            </li>
+                            <li>Use debugging tool in the browser to set breakpoints
+                                <ul>
+                                    <li>Use keyword debugger: this automatically creates breakpoints in the browser</li>
+                                    <li>Example
+                                        <ul>
+                                            <li>function amIOldEnough(age){</li>
+                                            <li>debugger;</li>
+                                            <li>if (age &lt; 12) {</li>
+                                            <li>debugger;</li>
+                                            <li>return 'No, sorry.';</li>
+                                            <li>} else if (age &lt; 18) {</li>
+                                            <li>debugger;</li>
+                                            <li>return 'Only if you are accompanied by an adult.';</li>
+                                            <li>} else {</li>
+                                            <li>debugger;</li>
+                                            <li>return 'Yep, come on in!';</li>
+                                            <li>}</li>
+                                            <li>}</li>
+                                            <li>amIOldEnough(16);</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>Throwing Exceptions</p>
+        <ul>
+            <li>Use throw statement to throw your own exceptions</li>
+            <li>Best to throw an error object instead of a integer or string
+                <ul>
+                    <li>Example: if the number is less than 0 which would return a NaN for Math.sqrt() then you can do
+                        this:
+                        <ul>
+                            <li>function squareRoot(number) {</li>
+                            <li>'use strict';</li>
+                            <li>if (number &lt; 0) {</li>
+                            <li>throw new RangeError('You can't find the square root of negative numbers')</li>
+                            <li>}</li>
+                            <li>return Math.sqrt(number);</li>
+                            <li>};</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>Exception Handling</p>
+        <ul>
+            <li>There are methods to identify an error and still let the user have a normal experience instead of
+                crashing the program</li>
+            <li>Try: if we think some code will result in an exception then wrap in a try block. This runs the code
+                inside the block as normal, but if exception occurs it will pass the error object onto a catch block.
+                <ul>
+                    <li>Example: Code inside the catch block will only run if an exception is thrown inside the try
+                        block. The error object is automatically passed as a parameter to the catch block.
+                        <ul>
+                            <li>function imaginarySquareRoot(number) {</li>
+                            <li>'use strict';</li>
+                            <li>try {</li>
+                            <li>return String(squareRoot(number));</li>
+                            <li>} catch(error) {</li>
+                            <li>return squareRoot(-number)+'i';</li>
+                            <li>}</li>
+                            <li>}</li>
+                        </ul>
+                    </li>
+                    <li>Finally: can be added after a catch block. This is always executed after the try or catch block
+                        regardless if an exception happened or not. Do this if you want some code to run in both cases.
+                        <ul>
+                            <li>Example:
+                                <ul>
+                                    <li>function imaginarySquareRoot(number) {</li>
+                                    <li>'use strict';</li>
+                                    <li>let answer;</li>
+                                    <li>try {</li>
+                                    <li>answer = String(squareRoot(number));</li>
+                                    <li>} catch(error) {</li>
+                                    <li>answer = squareRoot(-number)+"i";</li>
+                                    <li>} finally {</li>
+                                    <li>return `+ or - ${answer}`;</li>
+                                    <li>}</li>
+                                    <li>}</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>Testing</p>
+        <ul>
+            <li>TDD: Test driven development.
+                <ul>
+                    <li>Process of writing tests before any actual code. Considered to be best practice.</li>
+                </ul>
+            </li>
+            <li>Testing Frameworks
+                <ul>
+                    <li>Jest: TDD framework by Facebook</li>
+                </ul>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>To do Project</p>
+        <ul>
+            <li><a
+                    href="https://www.w3schools.com/howto/howto_js_todolist.asp">https://www.w3schools.com/howto/howto_js_todolist.asp</a>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p><strong>WEEK 7</strong></p>
+        <p>Chp 11 Further Functions</p>
+        <p>Function Properties</p>
+        <ul>
+            <li>All functions have a length property that returns the number of parameters the function has
+                <ul>
+                    <li>function square(x) {</li>
+                    <li>return x*x;</li>
+                    <li>}</li>
+                    <li>length</li>
+                    <li>&lt;&lt; 1</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Call and Apply</p>
+        <ul>
+            <li>Can be used to pull information out of an object/array</li>
+            <li>Example
+                <ul>
+                    <li>This function exists
+                        <ul>
+                            <li>function sayHello(){</li>
+                            <li>return `Hello, my name is ${ this.name }`;</li>
+                            <li>}</li>
+                        </ul>
+                    </li>
+                    <li>Create objects with the name property then use call() to invoke say() and provide an argument
+                        <ul>
+                            <li>const clark = { name: 'Clark' };</li>
+                            <li>const bruce = { name: 'Bruce' };</li>
+                            <li>call(clark);</li>
+                            <li>&lt;&lt; 'Hello, my name is Clarke'</li>
+                            <li>call(bruce);</li>
+                            <li>&lt;&lt; 'Hello, my name is Bruce'</li>
+                        </ul>
+                    </li>
+                    <li>If the function being invoked requires any parameters then that needs to be provided after the
+                        first argument
+                        <ul>
+                            <li>function sayHello(greeting='Hello'){</li>
+                            <li>return `${ greeting }, my name is ${ this.name }`;</li>
+                            <li>}</li>
+                            <li>call(clark, 'How do you do');</li>
+                            <li>&lt;&lt; 'How do you do, my name is Clark'</li>
+                            <li>call(bruce);</li>
+                            <li>&lt;&lt; 'Hello, my name is Bruce'</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>Immediately Invoked Function Expressions (IIFE &ndash; &ldquo;iffy&rdquo;)</p>
+        <ul>
+            <li>These functions run as soon as they are defined. Parentheses are placed at the end of the function.</li>
+            <li>This keeps variables contained to functions and keeps the global namespace clean</li>
+            <li>Example
+                <ul>
+                    <li>(function(){</li>
+                    <li>const temp = 'World';</li>
+                    <li>log(`Hello ${temp}`);</li>
+                    <li>})();</li>
+                    <li>&lt;&lt; 'Hello World'</li>
+                </ul>
+            </li>
+            <li>Use IIFE to enable Strict Mode. This would be useful for sharing code
+                <ul>
+                    <li>(function() {</li>
+                    <li>'use strict';</li>
+                    <li>// All your code would go inside this function</li>
+                    <li>})();</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Temporary Variables</p>
+        <ul>
+            <li>You can&rsquo;t remove a variable from scope once its been declared. You might have a variable that is
+                only used temporarily, but you cant get rid of it after its use. Put the variable inside an IIFE which
+                makes it available while the IIFE is invoked.</li>
+            <li>Example &ndash; variable temp is used within IIFE
+                <ul>
+                    <li>let a = 1;</li>
+                    <li>let b = 2;</li>
+                    <li>(()=&gt;{</li>
+                    <li>const temp = a;</li>
+                    <li>a = b;</li>
+                    <li>b = temp;</li>
+                    <li>})();</li>
+                    <li>a;</li>
+                    <li>&lt;&lt; 2</li>
+                    <li>b;</li>
+                    <li>&lt;&lt; 1</li>
+                    <li>log(temp);</li>
+                    <li>&lt;&lt; Error: "temp is not defined"</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Callbacks</p>
+        <ul>
+            <li>Already covered, but they are functions passed to other functions as arguments and then invoked inside
+                the function they are passed to</li>
+            <li>Instead of waiting for an event to occur, a callback can be created that&rsquo;s invoked when the event
+                happens. This way, code can run out of order (asynchronously).
+                <ul>
+                    <li>Theses can be click and keypress DOM events</li>
+                    <li>This helps ensure that waiting for these tasks to complete doesn&rsquo;t hold up the execution
+                        of other parts of the program.</li>
+                </ul>
+            </li>
+            <li>Promise: the future result of an asynchronous operation. They help simplify the process and avoid
+                convoluted code from using multiple callbacks
+                <ul>
+                    <li>Creating: use a contructor function.
+                        <ul>
+                            <li>const promise = new Promise( (resolve, reject) =&gt; {</li>
+                            <li>// initialization code goes here</li>
+                            <li>if (success) {</li>
+                            <li>resolve(value);</li>
+                            <li>} else {</li>
+                            <li>reject(error);</li>
+                            <li>}</li>
+                            <li>});</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>Functions That Return Functions</p>
+        <ul>
+            <li>A function can return another function</li>
+            <li>Example: this function returns function()
+                <ul>
+                    <li>function returnHello() {</li>
+                    <li>log('returnHello() called');</li>
+                    <li>return function() {</li>
+                    <li>log('Hello World!');</li>
+                    <li>}</li>
+                    <li>}</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Closures</p>
+        <ul>
+            <li>Closure: a reference to a variable that was created inside the scope of another function, but is then
+                kept alive and used in another part of the program.
+                <ul>
+                    <li>Example: The outer() function only has access to the variable outside , which was declared in
+                        its scope. The inner() function, however, has access to the variable inside , declared in its
+                        scope, but also the variable outside , declared outside its scope, but from within the outer()
+                        function.
+                        <ul>
+                            <li>function outer() {</li>
+                            <li>const outside = 'Outside!';</li>
+                            <li>function inner() {</li>
+                            <li>const inside = 'Inside!';</li>
+                            <li>log(outside);</li>
+                            <li>log(inside);</li>
+                            <li>}</li>
+                            <li>log(outside);</li>
+                            <li>inner();</li>
+                            <li>}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </main>
+
+
+
+
+    <script src="../../scripts/main.js"></script>
+</body>
+
+</html>

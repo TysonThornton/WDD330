@@ -13,15 +13,16 @@
     float: left;
 }
 
-#todoList li:hover {
-
-    background-color: lightgray;
-}
 
 #todoList {
 
     padding-left: 0px;
     text-align: center;
+}
+
+#todoList ul {
+
+    padding-left: 0;
 }
 
 .delete {
@@ -46,4 +47,14 @@ background-color: lightcoral;
 .hide {
 
     display: none;
+}
+
+.done {
+
+    background-color: lightgreen;
+}
+
+.done:hover {
+
+    background-color: lightgreen;
 }

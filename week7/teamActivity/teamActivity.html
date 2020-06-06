@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Activity</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="teamActivity.css">
+
+
+
+</head>
+
+<body>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#" id="menu">&equiv; Menu</a></li>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../week1/index.html">Week 1</a></li>
+            <li><a href="../../week2/index.html">Week 2</a></li>
+            <li><a href="../../week3/index.html">Week 3</a></li>
+            <li><a href="../../week4/index.html">Week 4</a></li>
+            <li><a href="../../week5/index.html">Week 5</a></li>
+            <li><a href="../../week6/index.html">Week 6</a></li>
+            <li><a href="../index.html">Week 7</a></li>
+            <li><a href="../week8/">Week 8</a></li>
+            <li><a href="../week9/">Week 9</a></li>
+            <li><a href="../week10/">Week 10</a></li>
+            <li><a href="../week11/">Week 11</a></li>
+            <li><a href="../week12/">Week 12</a></li>
+            <li><a href="../week13/">Week 13</a></li>
+            <li><a href="../week14/">Week 14</a></li>
+        </ul>
+    </nav>
+    <h1>Team Activity</h1><br>
+
+    <div>
+    <h2>Instructions</h2>
+    <h3>Core Requirements</h3>
+    <ol class="bigSteps">
+        <li>
+            <p>If you don't have a working copy of the Great hikes app then you can pull down <a
+                    href="https://github.com/byui-cit/cit261/tree/gh-pages/solutions/week05" target="_blank"
+                    rel="noreferrer">this version of the working code</a> as a starting point (<a
+                    href="https://byui-cit.github.io/cit261/solutions/week05/hikes5.zip">Zip archive</a>).</p>
+            <p>Review the code to refresh your memory on the structure we have used. Discuss with your group what
+                methods and properties you might need to implement your comments. A comment should consist of at least
+                the name of the hike it is for, a date, and the actual text of the comment. You will also need a comment
+                <kbd>type</kbd> to use as a key for when we store these to local storage.</p>
+            <p class="callout">Type? This is just to allow us to re-use this code. Later you might want to expand on
+                this application and add something like favorite parks or climbs, etc. It would be nice to re-use this
+                module for each of those. Adding a <kbd>type</kbd> flag allows us to add comments for different things
+                and grab all of them or keep them separate.</p>
+            <p>It might help here to write out a list of steps that need to happen in order to capture a comment. A
+                sample starter list can be found below.</p>
+            <ol>
+                <li>When the app loads we see a list of all hikes...below we should also see a list of all comments with
+                    type:hike.</li>
+                <li>When a hike is touched it will show us the details for that hike. We should also see any comments
+                    for that hike, and an input and button to add a new comment.</li>
+                <li>When the submit comment button is touched...</li>
+            </ol>
+            <p>From this we can start to infer some of the methods and properties we will need:</p>
+            <ul>
+                <li>A <code>getAllComments</code> and <code>renderCommentList</code> method.</li>
+                <li>A comment <code>type</code> to use as a key.</li>
+                <li>A <code>filterCommentsByName</code> method.</li>
+                <li>An array to hold all of our comments.</li>
+                <li>A comment should look something like this:
+                    <pre class=" language-js"><code class=" language-js">
+        <span class="token keyword">const</span> newComment <span class="token operator">=</span> <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> hikeName<span class="token punctuation">,</span>
+          date<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          content<span class="token punctuation">:</span> comment
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                        </code></pre>
+                </li>
+                <li>A method to add an event listener to the submit button.</li>
+                <li>An <code>addComment</code> method</li>
+                <li>...</li>
+            </ul>
+        </li>
+        <li>
+            <p>Build out the objects and modules decided on in step 1.</p>
+            <p>Create a new module for our Comments code. Create a class with a constructor to act as the controller.
+                The constructor should set a local property called <code>type</code> when the class is instantiated.</p>
+            <div class="callout">
+                <p>As you start thinking about implementing your module...think back to the Todo list we made. This is
+                    in many ways similar to that. We need a form to gather some user input, we need a button with a
+                    listener to store that into an array (and eventually LocalStorage), and we need to display a list of
+                    our comments. The biggest difference here is that we don't always want to show the entry form, and
+                    we want our module to be reusable.</p>
+                <p>Still there are enough simularities that you could probably use your ToDo code as a starting point
+                    for this. A couple of recommendations for changes:</p>
+                <ol>
+                    <li>We could end up with more than one type of comments, and more than one list of comments. If you
+                        haven't already, take the methods for adding and removing comments and our comment list and
+                        build an additional class around them. Call it something like <code>CommentModel</code>.</li>
+                    <li>Depending on how you hide/show your comment entry form you could end up with issues with your
+                        listeners. If you start getting funny behavior try using <code>element.ontouchend =
+                            callback</code>, instead of <code>element.addEventListener('touchend', callback)</code> when
+                        you attach the listener to your button. This will ensure that you only ever have one listener
+                        attached to the button at a time.</li>
+                    <li>One additional change (for the stretch) is that we need to include the name of the hike the
+                        comment is for in our saved comment. Consider how you will get that information into your
+                        listener so that the callback can use it.</li>
+                </ol>
+            </div>
+            <p>Create a method in the class called <kbd>showCommentsList</kbd>. For now it can just return some static
+                text or log something out to the console.</p>
+            <p>Insert your comment class into the hike class by adding a <code>new</code> instance of the comment class
+                in the constructor. Call the <kbd>showCommentsList</kbd> method when the list of hikes is shown to make
+                sure that you have things connected up correctly.</p>
+            <p>When you are looking at a specific hike it should allow you to enter a new comment, and should show all
+                the comments below that form.</p>
+            <p>Write the rest of the code to implement your commenting system. For now just store your comments in an
+                array.</p>
+        </li>
+        <li>
+            <p>Store It.</p>
+            <p>Write the model code to store and retrieve the comments to/from local storage.</p>
+        </li>
+    </ol>
+</div>
+
+    <main>
+        <h1>Great hikes</h1>
+        <ul id="hikes" class="hikeStyles">
+            <!-- your hike list should be build here. -->
+        </ul>
+        <section id="comments"></section>
+    </main>
+
+
+
+
+
+
+
+
+
+    <script src="../../scripts/main.js"></script>
+    <script src="./teamActivity.js" type="module"></script>
+</body>
+
+</html>
