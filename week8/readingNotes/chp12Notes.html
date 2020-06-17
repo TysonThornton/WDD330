@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chp 8 Notes: Transforms and Transitions</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="./chp12Notes.css">
+
+</head>
+
+<body>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#" id="menu">&equiv; Menu</a></li>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../week1/index.html">Week 1</a></li>
+            <li><a href="../../week2/index.html">Week 2</a></li>
+            <li><a href="../../week3/index.html">Week 3</a></li>
+            <li><a href="../../week4/index.html">Week 4</a></li>
+            <li><a href="../../week5/index.html">Week 5</a></li>
+            <li><a href="../../week6/index.html">Week 6</a></li>
+            <li><a href="../../week7/index.html">Week 7</a></li>
+            <li><a href="../index.html">Week 8</a></li>
+            <li><a href="../week9/">Week 9</a></li>
+            <li><a href="../week10/">Week 10</a></li>
+            <li><a href="../week11/">Week 11</a></li>
+            <li><a href="../week12/">Week 12</a></li>
+            <li><a href="../week13/">Week 13</a></li>
+            <li><a href="../week14/">Week 14</a></li>
+        </ul>
+    </nav>
+    <h2>Chp 12 Notes: Canvas, SVG, and Drag and Drop</h2>
+
+    <main>
+        <ul>
+            <li>Canvas API: can draw by using JavaScript
+                <ul>
+                    <li>Draw shapes, lines, arcs, text, gradients, patterns, and manipulate pixels in images and video
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>First step is to add canvas element to HTML</p>
+        <canvas id="myCanvas" class="myCanvas" width="200" height="200">
+            Sorry! Your browser doesn’t support Canvas.
+        </canvas>
+
+        <canvas id="demo2" class="myCanvas" width="200" height="200">
+            Sorry! Your browser doesn’t support Canvas.
+        </canvas>
+
+        <canvas id="demo3" class="myCanvas" width="200" height="200">
+            Sorry! Your browser doesn’t support Canvas.
+        </canvas>
+
+        <p>SVG</p>
+        <ul>
+        <li>Scalable Vector Graphics &ndash; specific file format that allows you to describe vector graphics using XML. Vector images preserve their quality as you zoom in.</li>
+        <li>XML: eXtensible Markup Language. XML tags describe data.</li>
+        <li>Drawing a circle in SVG is probably easier than using Canvas</li>
+        </ul>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="25" fill="red"/>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 400 400">
+            <desc>Drawing a rectangle</desc>
+                <rect x="10" y="10" width="100" height="100"  
+                    fill="blue" stroke="red" stroke-width="3"  />  
+            
+        </svg>
+
+
+    </main>
+
+
+
+
+    <script src="../../scripts/main.js"></script>
+    <script src="./chp12Notes.js"></script>
+</body>
+
+</html>
