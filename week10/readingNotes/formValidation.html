@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Notes</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="readingNotes.css">
+
+
+
+</head>
+
+<body>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#" id="menu">&equiv; Menu</a></li>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../week1/index.html">Week 1</a></li>
+            <li><a href="../../week2/index.html">Week 2</a></li>
+            <li><a href="../../week3/index.html">Week 3</a></li>
+            <li><a href="../../week4/index.html">Week 4</a></li>
+            <li><a href="../../week5/index.html">Week 5</a></li>
+            <li><a href="../../week6/index.html">Week 6</a></li>
+            <li><a href="../../week7/index.html">Week 7</a></li>
+            <li><a href="../../week8/index.html">Week 8</a></li>
+            <li><a href="../../week9/index.html">Week 9</a></li>
+            <li><a href="../index.html">Week 10</a></li>
+            <li><a href="../week11/">Week 11</a></li>
+            <li><a href="../week12/">Week 12</a></li>
+            <li><a href="../week13/">Week 13</a></li>
+            <li><a href="../week14/">Week 14</a></li>
+        </ul>
+    </nav>
+    <h1>Reading Notes:</h1>
+    <h1>Client-side Form Validation</h1><br>
+
+
+    <main>
+        <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">Link to MDN Article</a>
+        <p>Form Validation</p>
+        <ul>
+            <li>Messages like:
+                <ul>
+                    <li>"This field is required" (You can't leave this field blank).</li>
+                    <li>"Please enter your phone number in the format xxx-xxxx" (A specific data format is required for
+                        it to be considered valid).</li>
+                    <li>"Please enter a valid email address" (the data you entered is not in the right format).</li>
+                    <li>"Your password needs to be between 8 and 30 characters long and contain one uppercase letter,
+                        one symbol, and a number." (A very specific data format is required for your data).</li>
+                </ul>
+            </li>
+            <li>Client-side validation: done in the browser</li>
+            <li>Server-side validation: done on the server</li>
+            <li>Reasons why to validate:
+                <ul>
+                    <li>We want to get the right data, in the right format</li>
+                    <li>We want to protect our users data</li>
+                    <li>We want to protect ourselves</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Client-side Validation</p>
+        <ul>
+            <li>Built-in form validation: HTML5 form features. Has better performance than JavaScript but not as
+                customizable</li>
+            <li>JavaScript: completely customizable, but needs to be created</li>
+        </ul>
+        <p>Built-in form validation</p>
+        <ul>
+            <li>Use validation attributes on form elements:
+                <ul>
+                    <li>Required</li>
+                    <li>Minlength and maxlength: min and max length of strings</li>
+                    <li>Min and max: min and max of numerical input types</li>
+                    <li>Type: type of data like number, email, etc</li>
+                    <li>Pattern</li>
+                </ul>
+            </li>
+            <li>Example
+                <ul>
+                    <li>Using required attribute: done in example below</li>
+                    <li>Using pattern:
+                        <ul>
+                            <li>Expects a regular expression as its value (regex)</li>
+                            <li>Regex examples
+                                <ul>
+                                    <li>a &mdash; Matches one character that is a (not b, not aa, and so on).</li>
+                                    <li>abc &mdash; Matches a, followed by b, followed by c.</li>
+                                    <li>ab?c&mdash;Matches a, optionally followed by a single b, followed by c. ( ac or
+                                        abc)</li>
+                                    <li>ab*c&mdash;Matches a, optionally followed by any number of bs, followed by c. (
+                                        ac , abc, abbbbbc, and so on).</li>
+                                    <li>a|b &mdash; Matches one character that is a or b.</li>
+                                    <li>abc|xyz &mdash; Matches exactly abc or exactly xyz (but not abcxyz or a or y,
+                                        and so on).</li>
+                                </ul>
+                            </li>
+                            <li>Example done below</li>
+                        </ul>
+                    </li>
+                    <li>Constraining the values of entries: use min and max attributes
+                        <ul>
+                            <li>Example below</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>Validating forms using JavaScript</p>
+        <p>Constraint Validation API</p>
+        <ul>
+            <li>Consists of a set of methods and properties available on these form element DOM interfaces:
+                <ul>
+                    <li>HTMLButtonElement (represents a &lt;button&gt; element)</li>
+                    <li>HTMLFieldSetElement (represents a &lt;fieldset&gt; element)</li>
+                    <li>HTMLInputElement (represents an &lt;input&gt; element)</li>
+                    <li>HTMLOutputElement (represents an &lt;output&gt; element)</li>
+                    <li>HTMLSelectElement (represents a &lt;select&gt; element)</li>
+                    <li>HTMLTextAreaElement (represents a &lt;textarea&gt; element)</li>
+                </ul>
+            </li>
+            <li>Makes the following properties available on the elements above:
+                <ul>
+                    <li>validationMessage: returns a message</li>
+                    <li>validity: returns a ValiditiyState object containing properties of the validity state of the
+                        element.</li>
+                </ul>
+            </li>
+        </ul>
+        <p><a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState">Link to ValidityState properties</a>
+        </p>
+
+
+
+
+
+        <br><br><br>
+        <div>
+            <h3>Example of built in form validation</h3>
+            <form>
+                <h4>Using required attribute</h4>
+                <label for="choose">Would you prefer a banana or cherry? (required)</label>
+                <input id="choose" name="i_like" required>
+                <button>Submit</button>
+            </form>
+            <br>
+
+            <form>
+                <h4>Using pattern attribute</h4>
+                <label for="choose">Would you prefer a banana or a cherry?</label>
+                <input id="choose" name="i_like" required pattern="[Bb]anana|[Cc]herry">
+                <button>Submit</button>
+            </form>
+            <br>
+
+            <form>
+                <h4>Using min and max attributes</h4>
+                <div>
+                    <label for="choose">Would you prefer a banana or a cherry?</label>
+                    <input type="text" id="choose" name="i_like" required minlength="6" maxlength="6">
+                </div>
+                <div>
+                    <label for="number">How many would you like?</label>
+                    <input type="number" id="number" name="amount" value="1" min="1" max="10">
+                </div>
+                <div>
+                    <button>Submit</button>
+                </div>
+            </form>
+            <br>
+
+
+            <form>
+                <h4>Full example using all built-in validation features</h4>
+                <p>
+                    <fieldset>
+                        <legend>Do you have a driver's license?<abbr title="This field is mandatory"
+                                aria-label="required">*</abbr></legend>
+                        <!-- While only one radio button in a same-named group can be selected at a time,
+             and therefore only one radio button in a same-named group having the "required"
+             attribute suffices in making a selection a requirement -->
+                        <input type="radio" required name="driver" id="r1" value="yes"><label for="r1">Yes</label>
+                        <input type="radio" required name="driver" id="r2" value="no"><label for="r2">No</label>
+                    </fieldset>
+                </p>
+                <p>
+                    <label for="n1">How old are you?</label>
+                    <!-- The pattern attribute can act as a fallback for browsers which
+           don't implement the number input type but support the pattern attribute.
+           Please note that browsers that support the pattern attribute will make it
+           fail silently when used with a number field.
+           Its usage here acts only as a fallback -->
+                    <input type="number" min="12" max="120" step="1" id="n1" name="age" pattern="\d+">
+                </p>
+                <p>
+                    <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory"
+                            aria-label="required">*</abbr></label>
+                    <input type="text" id="t1" name="fruit" list="l1" required
+                        pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+                    <datalist id="l1">
+                        <option>Banana</option>
+                        <option>Cherry</option>
+                        <option>Apple</option>
+                        <option>Strawberry</option>
+                        <option>Lemon</option>
+                        <option>Orange</option>
+                    </datalist>
+                </p>
+                <p>
+                    <label for="t2">What's your e-mail address?</label>
+                    <input type="email" id="t2" name="email">
+                </p>
+                <p>
+                    <label for="t3">Leave a short message</label>
+                    <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+                </p>
+                <p>
+                    <button>Submit</button>
+                </p>
+            </form>
+        </div>
+        <br><br>
+
+        <div>
+            <h3>Examples of JavaScript validation using built in API</h3>
+
+            <form>
+                <h4>Simple example</h4>
+                <label for="mail">I would like you to provide me with an e-mail address:</label>
+                <input type="email" id="mail" name="mail">
+                <button>Submit</button>
+            </form>
+            <br>
+
+            <!-- novalidate turns off the browser's automatic validation -->
+            <form novalidate>
+                <h4>More detailed example</h4>
+                <p>
+                    <label for="mail">
+                        <span>Please enter an email address:</span>
+                        <input type="email" id="mail" name="mail" required minlength="8">
+                        <span class="error" aria-live="polite"></span>
+                    </label>
+                </p>
+                <button>Submit</button>
+            </form>
+        </div>
+        <br><br>
+
+
+        <div>
+            <h3>Examples of JavaScript validation NOT using built in API</h3>
+            <form>
+                <p>
+                    <label for="mail">
+                        <span>Please enter an email address:</span>
+                        <input type="text" class="mail" id="mail" name="mail">
+                        <span class="error" aria-live="polite"></span>
+                    </label>
+                </p>
+                <!-- Some legacy browsers need to have the `type` attribute
+                     explicitly set to `submit` on the `button`element -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+
+
+
+
+
+
+
+
+    <script src="../../scripts/main.js"></script>
+    <script src="./readingNotes.js"></script>
+</body>
+
+</html>
