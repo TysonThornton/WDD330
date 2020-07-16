@@ -1,38 +1,60 @@
 /* html selectors */
-nav ul {
+body {
+
+    background-image: url(../images/webb-dark.png);
+    color: white;
+    
+ }
+ 
+ body a{
+    text-decoration: none;
+    color: lightcoral
+ }
+ 
+ 
+ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-nav ul li:first-child {
+ }
+ 
+ nav ul li:first-child {
     display: block;
-}
-
-nav ul li {
+ }
+ 
+ nav ul li {
     background-color: lightgrey;
     border: 1px solid darkgray;
     display: none;
     
-
-}
-
-nav ul li a {
+ 
+ }
+ 
+ nav ul li a {
     color: black;
     display: block;
     padding: 7px;
     text-decoration: none;
-}
+ }
+ 
+ 
+ footer {
 
-
-
-
-
-/* class selectors */
-.open li{
+    text-align: center;
+ }
+ 
+ 
+ /* class selectors */
+ .open li{
     display: block;
+ }
+ 
+ 
+ 
+ /* id selectors */
+#homeMain {
+    text-align: center;
+    padding-bottom: 100px;
+    padding-top: 50px;
 }
 
-
-
-/* id selectors */

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="./styles/expenses.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#" id="menu">&equiv; Menu</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../todo/todo.html">Block 1 Project: To Do</a></li>
+            <li><a href="../expenses/expenses.html">Block 2 Project: Expenses</a></li>
+            <li><a href="../week1/index.html">Week 1</a></li>
+            <li><a href="../week2/index.html">Week 2</a></li>
+            <li><a href="../week3/index.html">Week 3</a></li>
+            <li><a href="../week4/index.html">Week 4</a></li>
+            <li><a href="../week5/index.html">Week 5</a></li>
+            <li><a href="../week6/index.html">Week 6</a></li>
+            <li><a href="../week7/index.html">Week 7</a></li>
+            <li><a href="../week8/index.html">Week 8</a></li>
+            <li><a href="../week9/index.html">Week 9</a></li>
+            <li><a href="../week10/index.html">Week 10</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="headings">
+            <h1>Expenses Calculator</h1>
+
+        </div>
+
+        <div id="quote">
+            <h3>Quote of the Day</h3>
+            <div id="inspQuote"></div>
+        </div>
+
+        <div id="expensesWrapper">
+            <div id="instructions">
+                <p id="instructions1"><b>Instructions:</b></p>
+                <p id="instructions2"> Add your daily/weekly/monthly expenses to
+                    see the total.
+                </p>
+            </div>
+
+
+            <div id="expenses">
+
+                <div id="inputWrapper">
+                    <div id="descriptionWrapper">
+                        <label for="newExpenseDescription">Description of the Expense</label><br>
+                        <input type="text" id="newExpenseDescription" size="23"><br>
+                    </div>
+                    <div id="amountWrapper">
+                        <label for="newExpenseAmount">Amount</label><br>
+                        <input type="number" id="newExpenseAmount">
+                        <button id="newExpenseBtn"><span>&#43;</span></button>
+                    </div>
+                </div>
+
+
+                <div id="expensesList"></div>
+                <div id="totalAmount"></div>
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+
+    <script src="../../scripts/main.js"></script>
+    <script src="./scripts/expenses.js" type="module"></script>
+
+</body>
+
+</html>

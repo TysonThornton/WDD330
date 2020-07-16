@@ -1,0 +1,189 @@
+body{
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    background-color: black;
+    background-image: none;
+}
+
+h1 {
+
+    color: rgb(249, 160, 63);
+    font-size: 35px;
+}
+
+
+#headings {
+
+    border-radius: 5px;
+}
+
+#headings h1 {
+
+    text-align: center;
+    margin: 0;
+    padding: 20px 0 40px 0;
+}
+
+#instructions {
+
+    background-color: rgb(249, 160, 63);
+    padding: 5px 0 5px 5px;
+    margin: 0;
+    border-radius: 5px;
+    
+}
+
+#instructions1 {
+
+    padding: 0 0 5px 5px;
+    margin: 0;
+}
+
+#instructions2 {
+    
+    padding: 5px 0 5px 5px;
+    margin: 0;
+    font-size: smaller;
+
+}
+
+#quote {
+
+    background-color: rgb(127, 176, 105);
+    color: white;
+    margin: 20px 5px 50px 5px;
+    padding: 5px 5px 20px 5px;
+    border-radius: 25px;
+}
+
+#quote h3 {
+
+    text-align: center;
+    margin: 0;
+}
+
+#inspQuote {
+
+    padding-top: 20px;
+    font-size: smaller;
+}
+
+
+
+#expensesWrapper {
+
+    border-color: rgb(249, 160, 63);
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+}
+
+#expenses {
+
+    border-radius: 5px;
+    padding-top: 10px;
+    
+
+}
+
+#expenses p {
+
+    color: white;
+    padding: 5px 0 10px 5px;
+    margin: 0;
+    
+}
+
+#inputWrapper {
+
+    padding-top: 5px;
+    text-align: center;
+}
+
+#descriptionWrapper {
+
+    float: left;
+    width: 60%;
+    padding-left: 5px;
+}
+
+#descriptionWrapper label {
+
+    color: white;
+
+}
+
+#amountWrapper label {
+
+    text-align: left;
+    color: white;
+    padding-right: 25px;
+   
+
+}
+
+
+#newExpenseAmount {
+
+    width: 75px;
+} 
+
+#expensesList {
+
+    color: white;
+    padding-top: 60px;
+}
+
+#expensesList table {
+
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+#expensesList table, th, td {
+
+    border: 1px solid rgb(249, 160, 63);
+}
+
+#expensesList th {
+    background-color: rgb(249, 160, 63);
+    color: black;
+
+}
+
+#expensesList td {
+
+    padding: 5px;
+}
+
+#totalAmount {
+
+    margin-top: 15px;
+}
+
+#totalAmountWrapper  p{
+
+    padding-right: 10px;
+    
+}
+
+#totalAmount  p{
+
+    display: inline-block;
+    color: rgb(249, 160, 63);
+    font-size: x-large;
+    font-weight: bold;
+    
+}
+
+#amountTotalValue {
+
+    display: inline; 
+     
+}
+
+
+
+
+

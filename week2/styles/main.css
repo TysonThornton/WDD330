@@ -1,6 +1,17 @@
-
-
 /* html selectors */
+body {
+
+   background-image: url(../../images/webb-dark.png);
+   color: white;
+   
+}
+
+body a{
+   text-decoration: none;
+   color: lightcoral
+}
+
+
 nav ul {
    list-style: none;
    margin: 0;
@@ -27,11 +38,7 @@ nav ul li a {
 }
 
 
-textarea {
-   width: 800px;
-   height: 250px;
-   background-color: azure; 
-}
+
 
 
 /* class selectors */
